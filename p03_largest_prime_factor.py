@@ -1,5 +1,5 @@
-#The prime factors of 13195 are 5, 7, 13 and 29.
-#What is the largest prime factor of the number 600851475143
+"""The prime factors of 13195 are 5, 7, 13 and 29.
+What is the largest prime factor of the number 600851475143"""
 
 
 def find_factors(num=600851475143):
@@ -14,8 +14,6 @@ def find_factors(num=600851475143):
 
 
 def find_largest_prime_factor(num=600851475143):
-    """Starting from the midpoint, check if every number is a factor of the
-    original number. The first factor found will be the largest factor."""
 
     factors = find_factors(num)
 
@@ -25,3 +23,5 @@ def find_largest_prime_factor(num=600851475143):
         factor_factors = find_factors(factor)
         if len(factor_factors) == 2:
             return factor
+
+find_largest_prime_factor()
