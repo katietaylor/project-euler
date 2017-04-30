@@ -13,3 +13,34 @@ that all starting numbers finish at 1.
 Which starting number, under one million, produces the longest chain?
 
 NOTE: Once the chain starts the terms are allowed to go above one million."""
+
+
+def create_collatz_sequence(first_num):
+    num = first_num
+    collatz_sequence = []
+
+    while num > 1:
+        collatz_sequence.append(num)
+        if num % 2 == 0:
+            num = num / 2
+        else:
+            num = 3 * num + 1
+    collatz_sequence.append(num)
+
+    return len(collatz_sequence)
+
+
+def find_longest_collatz_sequence(max_start=1000000):
+    longest_collatz = 0
+    longest_collatz_start = None
+
+    for i in range(1, max_start):
+        collatz_length = create_collatz_sequence(i)
+        if collatz_length > longest_collatz:
+            longest_collatz = collatz_length
+            longest_collatz_start = i
+
+    print "collatz length: ", collatz_length
+    return longest_collatz_start
+
+find_longest_collatz_sequence(1000000)
