@@ -35,7 +35,6 @@ def get_column_totals():
         total_value = str(column + remainder)
         values.append(int(total_value[-1]))
         remainder = int(total_value[:-1])
-    print remainder
 
     for value in list(str(remainder))[::-1]:
         values.append(int(value))
