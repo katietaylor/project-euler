@@ -21,10 +21,28 @@ divisors?"""
 
 def find_factors(num):
     n = int(num ** 0.5) + 1
-    factors = []
+    factors = set()
     while n > 0:
         if num % n == 0:
-            factors.append(n)
-            factors.append(num / n)
+            factors.add(n)
+            factors.add(num / n)
         n -= 1
-    return sorted(factors)
+    return factors
+
+
+def get_next_triangle_number(nth_triangle):
+    nth_numbers = range(1, nth_triangle + 1)
+    return sum(nth_numbers)
+
+
+def get_triangle_number_factors(factor_count=500):
+
+    triangle_nums = []
+    nth_triangle = 1
+
+    while True:
+        triangle_num = get_next_triangle_number(nth_triangle)
+        triangle_nums.append(triangle_num)
+        if len(find_factors(triangle_num)) > factor_count:
+            return triangle_num
+        nth_triangle += 1
